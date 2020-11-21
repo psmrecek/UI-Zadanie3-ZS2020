@@ -1,88 +1,62 @@
-# -----------------------------------------------------------
-# UI - Zadanie 3 - Finalne odovzdanie
-# ZS 2020
-#
-# Peter Smreček
-# email xsmrecek@stuba.sk
-# AIS ID 103130
-# -----------------------------------------------------------
-
 import math
+# import numpy as np
 from numpy import random as np_random
+# from csv import reader
+from csv import writer
 import pandas as pd
 
 
-def oddelovac(znak="-", pocet=150):
+def zaciatok_funkcie(funkcia, zac):
     """
-    Debuggovacia funkcia oddelujuca vypisy
-    :param znak: znak oddelovaca
-    :param pocet: pocet opakovani oddelovacieho znaku
+    Pomocna debuggovacia funkcia ktora vypise ktora funkcia bola prave spustena a ukoncena.
+
+    :param funkcia: nazov funkcie
+    :param zac: boolean ci zacina alebo konci
+    :return:
     """
 
+    if zac:
+        text = "# Zaciatok funkcie {} #".format(funkcia)
+    else:
+        text = "# Koniec funkcie {} #".format(funkcia)
+
+    ram = "#" * (len(text))
+
+    print(ram)
+    print(text)
+    print(ram)
+
+
+def oddelovac(znak="-", pocet=150):
     print(znak * pocet)
 
 
 class Graf:
-    """
-    Trieda grafu
-    """
-
     def __init__(self, suradnice):
-        """
-        Vytvorenie instancie triedy s uvodnymi parametrami
-        :param suradnice: zadane suradnice miest
-        """
         self.suradnice = suradnice
         self.pocet_miest = len(self.suradnice)
         self.dlzka = self.dlzka_cesty()
         self.fitnes = self.fitnes_vypocet()
 
     def get_suradnice(self):
-        """
-        Getter suradnic
-        """
-
         return self.suradnice
 
     def get_pocet(self):
-        """
-        Getter poctu miest
-        """
-
         return self.pocet_miest
 
     def get_dlzka(self):
-        """
-        Getter dlzky cesty
-        """
         return self.dlzka
 
     def get_fitnes(self):
-        """
-        Getter fitnes-u
-        """
-
         return self.fitnes
 
     def euklidova_vzdialenost(self, vrchol1, vrchol2):
-        """
-        Funkcia na vypocet euklidovej vzdialenosti medzi 2 vrcholmi
-        :param vrchol1:
-        :param vrchol2:
-        :return: vzdialenost vrcholov
-        """
-
         v1 = self.suradnice[vrchol1]
         v2 = self.suradnice[vrchol2]
         vzdialenost_vrcholov = math.sqrt((v1[0] - v2[0]) ** 2 + (v1[1] - v2[1]) ** 2)
         return vzdialenost_vrcholov
 
     def dlzka_cesty(self):
-        """
-        Vypocita dlzku cesty pre zadanu postupnost miest
-        :return: dlzka grafu
-        """
-
         predosly = -1
         sum_vzdialenost = 0
         for index in range(self.pocet_miest):
@@ -97,37 +71,29 @@ class Graf:
         return sum_vzdialenost
 
     def fitnes_vypocet(self):
-        """
-        Vypocita fitnes grafu
-        :return: fitnes grafu
-        """
-
         return 1 / self.dlzka
 
     def permutuj(self):
-        """
-        Vytvori nahodnu permutaciu grafu. Pouziva sa pri uvodnej tvorbe jedincov a pri Novej Krvi.
-        :return: instancia triedy graf s novou nahodnou permutaciou sucasneho grafu
-        """
-
         permutacia = np_random.permutation(self.suradnice)
         permutacia = permutacia.tolist()
         return Graf(permutacia)
+        # return permutacia
 
-    def mutacia(self, zadana_pravdepodobnost):
-        """
-        Mutacia jedinca - ak ma mutaciu prebehnut, vyberie sa jedno nahodne mesto a vymeni sa s jeho susedom
-        :param zadana_pravdepodobnost: pravdepodobnost mutacie
-        """
-
-        if self.pravdepodobnost(zadana_pravdepodobnost):
+    def mutacia(self, pravdepodobnost):
+        # for i in range(100):
+        #     index = np_random.randint(0, self.pocet_miest - 1)
+        #     print("{:2d}".format(index), end=" ")
+        #     if i % 10 == 0:
+        #         print()
+        # print()
+        if self.pravdepodobnost(pravdepodobnost):
             index = np_random.randint(0, self.pocet_miest - 1)
             self.suradnice[index], self.suradnice[index + 1] = self.suradnice[index + 1], self.suradnice[index]
+        #     print("Mutujem")
+        # else:
+        #     print("Nemutujem")
 
     def __str__(self):
-        """
-        Vypis grafu
-        """
         text = ""
         for index in range(self.pocet_miest):
             text += str(self.suradnice[index])
@@ -138,29 +104,20 @@ class Graf:
         return text
 
     def pravdepodobnost(self, zadana_pravdepodobnost):
-        """
-        Zisti, ci sa ma uskutocnit mutacia, alebo nie
-        :param zadana_pravdepodobnost: pravdepodobnost mutacia
-        :return: boolean
-        """
-
         p = np_random.rand()
         if p <= zadana_pravdepodobnost:
             return True
         return False
 
+    def test_pravdepodobnosti(self, p):
+        ano = 0
+        for i in range(100):
+            vyskyt = self.pravdepodobnost(p)
+            ano += vyskyt
+        print(ano)
+
 
 def mixuj(pocet, surandnice1, suradnice2, hranica_1, hranica_2):
-    """
-    Vymeni casti cesty medzi 2 zadanimi cestami podla zadanych hranic
-    :param pocet: pocet miest
-    :param surandnice1: cesta prvym grafom
-    :param suradnice2: cesta druhym grafom
-    :param hranica_1: pociatok vymeny
-    :param hranica_2: koniec vymeny
-    :return:
-    """
-
     stred = surandnice1[hranica_1:hranica_2 + 1]
     zvysne_suradnice = [suradnica for suradnica in suradnice2 if suradnica not in stred]
     vysledok = []
@@ -171,17 +128,31 @@ def mixuj(pocet, surandnice1, suradnice2, hranica_1, hranica_2):
 
     return vysledok
 
+    # vysledok2 = []
+    # zvysne_suradnice2 = [suradnica for suradnica in suradnice2 if suradnica not in stred]
+    # aktualny_index_vysledok2 = 0
+    # # print("stred", stred)
+    # # print("zvysok", zvysne_suradnice2)
+    # while(aktualny_index_vysledok2 < hranica_1):
+    #     vysledok2.append(zvysne_suradnice2.pop(0))
+    #     aktualny_index_vysledok2 += 1
+    # # print("vysledok2 po prvom cykle", vysledok2)
+    # # print("aktualne po prvom cykle", aktualny_index_vysledok2)
+    # vysledok2 += stred
+    # # print("vysledok2 po pridani stredu", vysledok2)
+    # aktualny_index_vysledok2 = hranica_2 + 1
+    # while(aktualny_index_vysledok2 < pocet):
+    #     vysledok2.append(zvysne_suradnice2.pop(0))
+    #     aktualny_index_vysledok2 += 1
+    # # print("vysledok2", vysledok2)
+    # if vysledok != vysledok2:
+    #     print("Vysledky sa nerovnaju")
+    #     print(hranica_1, hranica_2)
+    #     print(vysledok)
+    #     print(vysledok2)
+
 
 def porod(rodic1, rodic2, pravdepodobnost_mutacie):
-    """
-    Vytvori z 2 rodicov 2 deti na zaklade 2 bodoveho krizenia opisaneho v zadani. Spusta funkciu mixuj dvakrat
-    vymenenym poradim rodicov.
-    :param rodic1: instancia triedy Graf
-    :param rodic2: instancia triedy Graf
-    :param pravdepodobnost_mutacie: pravdepodobnost mytacie dietata
-    :return: 2 deti
-    """
-
     pocet = rodic1.get_pocet()
     suradnice_rodic1 = rodic1.get_suradnice()
     suradnice_rodic2 = rodic2.get_suradnice()
@@ -197,19 +168,17 @@ def porod(rodic1, rodic2, pravdepodobnost_mutacie):
 
     return [dieta_1, dieta_2]
 
+    # print(pocet)
+    # print(suradnice_rodic1)
+    # print(suradnice_rodic2)
+    # print(hranica_1, hranica_2)
+    # print(suradnice_rodic1[hranica_1:hranica_2+1])
+    # print(vysledok_R1R2)
+    # print(vysledok_R2R1)
+
 
 def turnaj(pocet_clenov_populacie, pole_indexov, pravdepodobnosti):
-    """
-    Vyber rodicov turnajom. Vyberu sa 2 nahodne dvojice jedincov z populacie, z kazdej dvojice sa vyberie
-    jeden jedinec s lepsim fitnesom a navzajom sa tito vybrati jedinci skrizia. Toto sa opakuje tolkokrat, kolko je
-    jedincov v populacii.
-    :param pocet_clenov_populacie: pocet miest v grafe
-    :param pole_indexov: pole indexov clenov populacie od 0 po pocet_clenov_populacie - 1
-    :param pravdepodobnosti: jednotlive fitnes pre zodpovedajucich jedincov namapovanych v pole_indexov
-    :return:
-    """
-
-    pocet_dvojic_rodicov = pocet_clenov_populacie // 2
+    pocet_dvojic_rodicov = pocet_clenov_populacie
     dvojice_rodicov = []
 
     for i in range(pocet_dvojic_rodicov):
@@ -219,6 +188,11 @@ def turnaj(pocet_clenov_populacie, pole_indexov, pravdepodobnosti):
             vyber2 = np_random.choice(pole_indexov, 2, replace=False)
             rodic1 = vyber1[0] if pravdepodobnosti[vyber1[0]] > pravdepodobnosti[vyber1[1]] else vyber1[1]
             rodic2 = vyber2[0] if pravdepodobnosti[vyber2[0]] > pravdepodobnosti[vyber2[1]] else vyber2[1]
+            # print(vyber1)
+            # print(vyber2)
+            # print(rodic1)
+            # print(rodic2)
+        # oddelovac()
 
         dvojice_rodicov.append([rodic1, rodic2])
 
@@ -226,14 +200,6 @@ def turnaj(pocet_clenov_populacie, pole_indexov, pravdepodobnosti):
 
 
 def ruleta(pocet_clenov_populacie, pole_indexov, pravdepodobnosti):
-    """
-    Vyber rodicov ruletou. Z populacie vyberam 2 rodicov podla vahy.
-    :param pocet_clenov_populacie: pocet miest v grafe
-    :param pole_indexov: pole indexov clenov populacie od 0 po pocet_clenov_populacie - 1
-    :param pravdepodobnosti: jednotlive fitnes pre zodpovedajucich jedincov namapovanych v pole_indexov
-    :return:
-    """
-
     koeficient = 1 / sum(pravdepodobnosti)
     prenasobene_pravdepodobnosti = [prvok * koeficient for prvok in pravdepodobnosti]
 
@@ -248,12 +214,6 @@ def ruleta(pocet_clenov_populacie, pole_indexov, pravdepodobnosti):
 
 
 def najdi_najlepsieho(populacia):
-    """
-    Najde a vrati jedinca s najvacim fitnes v zadanej populacii.
-    :param populacia: populacia jedincov
-    :return: najlepsi jedinec
-    """
-
     maximum = 0
     najlepsi = None
     for jedinec in populacia:
@@ -264,12 +224,6 @@ def najdi_najlepsieho(populacia):
 
 
 def najdi_najhorsieho(populacia):
-    """
-    Najde a vrati jedinca s najmensim fitnes v zadanej populacii.
-    :param populacia: populacia jedincov
-    :return: najhorsi jedinec
-    """
-
     minimum = 2
     najhorsi = None
     for jedinec in populacia:
@@ -281,27 +235,6 @@ def najdi_najhorsieho(populacia):
 
 def geneticky_algoritmus(povodne_suradnice, vyber_rodicov, pocet_generacii=2000, pravdepodobnost_mutacie=0.1,
                          pocet_clenov_populacie=40, ponechat_najlepsieho=False, nova_krv=False, vypisy=True):
-    """
-    Geneticky algoritmus na riesenie problemu obchodneho cestujuceho.
-    Z povodne zadaneho grafu vytvori tolko clenov populacie kolko je potrebnych. Nasledne na tychto clenoch populacie
-    hlada krizenim globalne optimum.
-    Vybera rodicov stanovenou funkciou, vytvori ich deti, prepise detmi povodnu populaciu. Toto vykona tolkokrat, kolko
-    je zadany pocet generacii.
-    Okrem funkcii vyberu rodicov je mozne zvolit aj ci najlepsi jedinec automaticky postupi do dalsej generacie a aj to,
-    ci maju byt 2 nahodne deti nahradene 2 nahodnymi permutaciami, ako prevencia pred uviaznitim v lokalnom optime.
-    :param povodne_suradnice: Povodna zadana permutacia suradnic
-    :param vyber_rodicov: funkcia vyberu rodicov z populacie
-    :param pocet_generacii: pocet generacii evolucneho algoritmu
-    :param pravdepodobnost_mutacie: pravdepodobnost mutacie dietata
-    :param pocet_clenov_populacie: pocet jedincov v populacii
-    :param ponechat_najlepsieho: boolean, ak True, tak najlepsi automaticky postupuje do dalsej generacie. Ak False, tak
-            najsledujuca generacia moze prist o najlepsieho jedinca
-    :param nova_krv: boolean, ak True, 2 nahodne deti v kazdej generacii su nahradene 2 novymi permutaciami, ak False,
-            tak vsetky deti su detmi rodicov z predoslej generacie
-    :param vypisy: boolean, ak True, tak su ciatkove vypisy po 1000 generaciach aktivne, ak False, tak nie
-    :return: tuple obsahujucu pole priemerov fitnes v jednotlivych generaciach, pole maximalnych fitnes v jednotlivych
-            generaciach a najlepsieho jedinca z poslednej generacie
-    """
 
     print("Start genetickeho algoritmu")
     print("Povodne suradnice", povodne_suradnice)
@@ -309,7 +242,6 @@ def geneticky_algoritmus(povodne_suradnice, vyber_rodicov, pocet_generacii=2000,
     print("Pocet generacii", pocet_generacii)
     print("Pocet clenov populacie", pocet_clenov_populacie)
     print("Pravdepodobnost mutacii deti", pravdepodobnost_mutacie)
-
     if ponechat_najlepsieho:
         print("Najhorsie z deti je nahradene najlepsim clenom z predoslej populacie")
     if nova_krv:
@@ -325,7 +257,19 @@ def geneticky_algoritmus(povodne_suradnice, vyber_rodicov, pocet_generacii=2000,
     for i in range(pocet_clenov_populacie):
         populacia.append(povodny_graf.permutuj())
 
+    # pocitadlo = 0
+    # slabe = 0
+    # for jedinec in populacia:
+    #     print(pocitadlo, jedinec, jedinec.get_fitnes())
+    #     pocitadlo += 1
+    #     if jedinec.get_fitnes() < 0.02:
+    #         slabe += 1
+    # print(slabe)
+    # oddelovac()
+
     pole_indexov = range(pocet_clenov_populacie)
+
+    # print("Dlzka povodneho grafu je ", povodny_graf.get_dlzka())
 
     pole_priemerov = []
     pole_maxim = []
@@ -342,7 +286,7 @@ def geneticky_algoritmus(povodne_suradnice, vyber_rodicov, pocet_generacii=2000,
         pole_maxim.append(jedinec.get_fitnes())
 
         dvojice_rodicov = vyber_rodicov(pocet_clenov_populacie, pole_indexov, pravdepodobnosti)
-
+        # print(dvojice_rodicov)
         nova_populacia = []
         for rodicia in dvojice_rodicov:
             deti = porod(populacia[rodicia[0]], populacia[rodicia[1]], pravdepodobnost_mutacie)
@@ -354,12 +298,23 @@ def geneticky_algoritmus(povodne_suradnice, vyber_rodicov, pocet_generacii=2000,
             nova_populacia[a] = povodny_graf.permutuj()
             nova_populacia[b] = povodny_graf.permutuj()
 
+        # pocitadlo = 0
+        # slabe = 0
+        # for jedinec in nova_populacia:
+        #     # print(pocitadlo, jedinec, jedinec.get_fitnes())
+        #     pocitadlo += 1
+        #     if jedinec.get_fitnes() < 0.02:
+        #         slabe += 1
+        # print("Generacia {} ma {} slabych jedincov".format(cislo_generacie + 1, slabe))
+        # oddelovac()
+
         populacia = nova_populacia
 
         najlepsi_z_populacie = najdi_najlepsieho(populacia)
 
         if najlepsi_z_populacie.get_dlzka() < najlepsi_jedinec_zo_vsetkych.get_dlzka():
             najlepsi_jedinec_zo_vsetkych = najlepsi_z_populacie
+            # print("Teraz")
         elif ponechat_najlepsieho:
             najhorsi_jedinec = najdi_najhorsieho(populacia)
             index_najhorsieho = populacia.index(najhorsi_jedinec)
@@ -373,7 +328,13 @@ def geneticky_algoritmus(povodne_suradnice, vyber_rodicov, pocet_generacii=2000,
                 print("Najlepsi jedinec tejto generacie ma fitnes", najlepsi_z_populacie.get_fitnes())
                 print("Najlepsi jedinec zo vsetkych populacii s dlzkou {} je:".format(
                     (najlepsi_jedinec_zo_vsetkych.get_dlzka())))
+                # print(najlepsi_jedinec_zo_vsetkych)
                 oddelovac()
+
+    # pocitadlo = 0
+    # for jedinec in nova_populacia:
+    #     print(pocitadlo, jedinec, jedinec.get_fitnes())
+    #     pocitadlo += 1
 
     if vypisy:
         najlepsi_z_poslednej = najdi_najlepsieho(populacia)
@@ -382,22 +343,16 @@ def geneticky_algoritmus(povodne_suradnice, vyber_rodicov, pocet_generacii=2000,
         print(najlepsi_z_poslednej)
         print("Jeho fitnes je", najlepsi_z_poslednej.get_fitnes())
         if najlepsi_z_poslednej.get_dlzka() != najlepsi_jedinec_zo_vsetkych.get_dlzka():
-            print("Najlepsi jedinec z poslednej populacie je iny ako najlepsi jedinec zo vsetkych populacii.")
-            print("Najlepsi jedinec zo vsetkych populacii s dlzkou {} "
-                  "je:".format((najlepsi_jedinec_zo_vsetkych.get_dlzka())))
+            print(
+                "Najlepsi jedinec zo vsetkych populacii s dlzkou {} je:".format((najlepsi_jedinec_zo_vsetkych.get_dlzka())))
             print(najlepsi_jedinec_zo_vsetkych)
             print("Jeho fitnes je", najlepsi_jedinec_zo_vsetkych.get_fitnes())
         oddelovac()
 
-    return pole_priemerov, pole_maxim, najlepsi_z_poslednej
-
-def riadic():
-    """
-    Riadiaca funkcia genetickeho algoritmu. Umoznuje pouzivatelovi zvolit rozne rezimy funkcii pre porovnanie vysledkov.
-    """
-    pass
+    return pole_priemerov, pole_maxim, najlepsi_jedinec_zo_vsetkych
 
 def main():
+    zaciatok_funkcie(main.__name__, True)
 
     suradnice = [(60, 200), (180, 200), (100, 180), (140, 180), (20, 160), (80, 160), (200, 160), (140, 140),
                  (40, 120), (120, 120), (180, 100), (60, 80), (100, 80), (180, 60), (20, 40), (100, 40),
@@ -497,8 +452,8 @@ def main():
     # geneticky_algoritmus(dummy_suradnice_tuples2)
     # geneticky_algoritmus(nahodne_suradnice2)
 
-    print("Geneticky algoritmus na povodnom grafe")
-    geneticky_algoritmus(suradnice, ruleta, ponechat_najlepsieho=True, nova_krv=True, pocet_generacii=10000)
+    # print("Geneticky algoritmus na povodnom grafe")
+    # geneticky_algoritmus(suradnice, ruleta, ponechat_najlepsieho=True, nova_krv=True, pocet_generacii=10000)
 
     # print("Rozne suradnice")
     # www-m9.ma.tum.de
@@ -512,59 +467,34 @@ def main():
 
     # print(np_random.get_state())
 
-    # np_random.seed(0)
-    # df = pd.DataFrame()
-    # stlpec = 0
-    # for i in range(3):
-    #     print("Pokus {}".format(i + 1))
-    #     # pole_priemerov, najlepsi_fitnes = geneticky_algoritmus([[15, 1], [30, 3], [22, 29], [52, 46], [1, 49]], ruleta,
-    #     #                                         ponechat_najlepsieho=True, nova_krv=True, pocet_generacii=50)
-    #     pole_priemerov, pole_maxim, najlepsi_jedinec = geneticky_algoritmus(suradnice, turnaj, ponechat_najlepsieho=True,
-    #                                                            nova_krv=True, pocet_generacii=5000, vypisy=True)
-    #     oddelovac(znak="#")
-    #     pole_priemerov.append(" ")
-    #     pole_priemerov.append("Fitnes celkoveho najlepsieho")
-    #     pole_priemerov.append(najlepsi_jedinec.get_fitnes())
-    #     df.insert(stlpec, "Pokus {} Priemer".format(i + 1), pole_priemerov, True)
-    #     stlpec += 1
-    #     pole_maxim.append(" ")
-    #     pole_maxim.append("Fitnes celkoveho najlepsieho")
-    #     pole_maxim.append(najlepsi_jedinec.get_fitnes())
-    #     df.insert(stlpec, "Pokus {} Maximum".format(i + 1), pole_maxim, True)
-    #     stlpec += 1
-    #
-    # df.to_excel("Test3_turnaj.xlsx", index=True)
-    #
-    # np_random.seed(0)
-    # df = pd.DataFrame()
-    # stlpec = 0
-    # for i in range(3):
-    #     print("Pokus {}".format(i + 1))
-    #     # pole_priemerov, najlepsi_fitnes = geneticky_algoritmus([[15, 1], [30, 3], [22, 29], [52, 46], [1, 49]], ruleta,
-    #     #                                         ponechat_najlepsieho=True, nova_krv=True, pocet_generacii=50)
-    #     pole_priemerov, pole_maxim, najlepsi_jedinec = geneticky_algoritmus(suradnice, ruleta, ponechat_najlepsieho=True,
-    #                                                            nova_krv=True, pocet_generacii=5000, vypisy=True)
-    #     oddelovac(znak="#")
-    #     pole_priemerov.append(" ")
-    #     pole_priemerov.append("Fitnes celkoveho najlepsieho")
-    #     pole_priemerov.append(najlepsi_jedinec.get_fitnes())
-    #     df.insert(stlpec, "Pokus {} Priemer".format(i + 1), pole_priemerov, True)
-    #     stlpec += 1
-    #     pole_maxim.append(" ")
-    #     pole_maxim.append("Fitnes celkoveho najlepsieho")
-    #     pole_maxim.append(najlepsi_jedinec.get_fitnes())
-    #     df.insert(stlpec, "Pokus {} Maximum".format(i + 1), pole_maxim, True)
-    #     stlpec += 1
-    #
-    # df.to_excel("Test3_ruleta.xlsx", index=True)
+    df = pd.DataFrame()
+    stlpec = 0
+    for i in range(3):
+        print("Pokus {}".format(i + 1))
+        # pole_priemerov, najlepsi_fitnes = geneticky_algoritmus([[15, 1], [30, 3], [22, 29], [52, 46], [1, 49]], ruleta,
+        #                                         ponechat_najlepsieho=True, nova_krv=True, pocet_generacii=50)
+        pole_priemerov, pole_maxim, najlepsi_jedinec = geneticky_algoritmus(suradnice, ruleta, ponechat_najlepsieho=True,
+                                                               nova_krv=True, pocet_generacii=5000, vypisy=True)
+        oddelovac(znak="#")
+        pole_priemerov.append(" ")
+        pole_priemerov.append("Fitnes celkoveho najlepsieho")
+        pole_priemerov.append(najlepsi_jedinec.get_fitnes())
+        df.insert(stlpec, "Pokus {} Priemer".format(i + 1), pole_priemerov, True)
+        stlpec += 1
+        pole_maxim.append(" ")
+        pole_maxim.append("Fitnes celkoveho najlepsieho")
+        pole_maxim.append(najlepsi_jedinec.get_fitnes())
+        df.insert(stlpec, "Pokus {} Maximum".format(i + 1), pole_maxim, True)
+        stlpec += 1
 
-    # dvojice_rodicov = turnaj(6, [0,1,2,3,4,5], [0.1, 0.05, 0.2, 0.04, 0.15, 0.18])
-    # print(dvojice_rodicov)
-    # dvojice_rodicov = ruleta(6, [0,1,2,3,4,5], [0.1, 0.05, 0.2, 0.04, 0.15, 0.18])
+    df.to_excel("Test2.xlsx", index=True)
+
+    # dvojice_rodicov = turnaj(5, [0,1,2,3,4], [0.1, 0.05, 0.2, 0.04, 0.15])
     # print(dvojice_rodicov)
 
     # geneticky_algoritmus(suradnice, turnaj, ponechat_najlepsieho=True, nova_krv=True, pocet_generacii=10000)
 
+    zaciatok_funkcie(main.__name__, False)
 
 
 if __name__ == "__main__":
