@@ -10,6 +10,8 @@
 import math
 from numpy import random as np_random
 import pandas as pd
+from datetime import datetime
+import sys
 
 
 def oddelovac(znak="-", pocet=150):
@@ -391,6 +393,7 @@ def geneticky_algoritmus(povodne_suradnice, vyber_rodicov, pocet_generacii=2000,
 
     return pole_priemerov, pole_maxim, najlepsi_z_poslednej
 
+
 def generuj_suradnice():
     """
     Funkcia na generovanie nahodneho poctu miest z rozmedzia <20; 40> so suradnicami <0; 200>
@@ -409,6 +412,117 @@ def generuj_suradnice():
     return suradnice
 
 
+def charakterizuj(seed, vyber_rodicov, pocet_generacii, pravdepodobnost_mutacie,
+                         pocet_clenov_populacie, ponechat_najlepsieho, nova_krv):
+    """
+    Vytvori charakteristiku riesenia do nazvu suboru
+    :return: string charakteristiky
+    """
+
+    charakteristika = "S"+str(seed)+"V"+vyber_rodicov.__name__[0]+"G"+str(pocet_generacii)+"C"+\
+                      str(pocet_clenov_populacie)+"M"+str(pravdepodobnost_mutacie)+\
+                      "N"+str(ponechat_najlepsieho)[0].lower()+"K"+str(nova_krv)[0].lower()
+
+    return charakteristika
+
+
+def generuj_excel(pole_priemerov, pole_maxim, najlepsi_z_poslednej, charakteristika):
+    """
+    Zapise vystupy funkcie geneticky_algoritmus do excel suboru.
+    :param pole_priemerov: pole vratene funkciou geneticky_algoritmus
+    :param pole_maxim: pole vratene funkciou geneticky_algoritmus
+    :param najlepsi_z_poslednej: jedinec vrateny funkciou geneticky_algoritmus
+    :return:
+    """
+
+    df = pd.DataFrame()
+    stlpec = 0
+
+    pole_priemerov.append(" ")
+    pole_priemerov.append("Fitnes celkoveho najlepsieho")
+    pole_priemerov.append(najlepsi_z_poslednej.get_fitnes())
+    df.insert(stlpec, "Pokus {} Priemer".format(charakteristika), pole_priemerov, True)
+    stlpec += 1
+    pole_maxim.append(" ")
+    pole_maxim.append("Fitnes celkoveho najlepsieho")
+    pole_maxim.append(najlepsi_z_poslednej.get_fitnes())
+    df.insert(stlpec, "Pokus {} Maximum".format(charakteristika), pole_maxim, True)
+    stlpec += 1
+
+    now = datetime.now()
+    nazov = now.strftime("%Y-%m-%d--%H-%M-%S-")
+    nazov += charakteristika
+    nazov += ".xlsx"
+
+    df.to_excel(nazov, index=True)
+    print("Bol vygenerovany subor s vystupmi \"{}\"".format(nazov))
+
+
+def automaticky_testovac():
+    original = sys.stdout
+    now = datetime.now()
+    nazov = now.strftime("%Y-%m-%d--%H-%M-%S-")
+    nazov +="vystup_z_konzoly.txt"
+
+    with open(nazov, "w") as vystup:
+        sys.stdout = vystup
+        for i in range(8):
+
+            zadane_suradnice = [(60, 200), (180, 200), (100, 180), (140, 180), (20, 160), (80, 160), (200, 160), (140, 140),
+                                (40, 120), (120, 120), (180, 100), (60, 80), (100, 80), (180, 60), (20, 40), (100, 40),
+                                (200, 40), (20, 20), (60, 20), (160, 20)]
+
+            suradnice = None
+            vyber_rodicov = None
+            pocet_generacii = 10000
+            pocet_clenov_populacie = 40
+            pravdepodobnost_mutacie = 0.1
+            ponechat_najlepsieho = True
+            nova_krv = True
+            vypisy = True
+
+            vyber = i
+
+            print("Bola zvolena moznost", vyber)
+            if vyber == 0 or vyber == 1:
+                seed = 3
+                np_random.seed(seed)
+                suradnice = zadane_suradnice
+                vyber_rodicov = ruleta if vyber == 0 else turnaj
+                print("Tato moznost zodpoveda suradniciam zo zadania, cize sa negeneruju. Seed je nastaveny na", seed)
+            if vyber == 2 or vyber == 3:
+                seed = 11
+                np_random.seed(seed)
+                suradnice = generuj_suradnice()
+                vyber_rodicov = ruleta if vyber == 2 else turnaj
+                print("Tato moznost zopoveda suradniciam vygenerovanym randomom so seedom", seed)
+            if vyber == 4 or vyber == 5:
+                seed = 99
+                np_random.seed(seed)
+                suradnice = generuj_suradnice()
+                vyber_rodicov = ruleta if vyber == 4 else turnaj
+                print("Tato moznost zopoveda suradniciam vygenerovanym randomom so seedom", seed)
+            if vyber == 6 or vyber == 7:
+                seed = 111
+                np_random.seed(seed)
+                suradnice = generuj_suradnice()
+                vyber_rodicov = ruleta if vyber == 6 else turnaj
+                print("Tato moznost zopoveda suradniciam vygenerovanym randomom so seedom", seed)
+
+            pole_priemerov, pole_maxim, najlepsi_z_poslednej = geneticky_algoritmus(suradnice, vyber_rodicov,
+                                                                                    pocet_generacii=pocet_generacii,
+                                                                                    pravdepodobnost_mutacie=pravdepodobnost_mutacie,
+                                                                                    pocet_clenov_populacie=pocet_clenov_populacie,
+                                                                                    ponechat_najlepsieho=ponechat_najlepsieho,
+                                                                                    nova_krv=nova_krv, vypisy=vypisy)
+
+            charakteristika = charakterizuj(seed, vyber_rodicov, pocet_generacii, pravdepodobnost_mutacie,
+                                            pocet_clenov_populacie, ponechat_najlepsieho, nova_krv)
+            generuj_excel(pole_priemerov, pole_maxim, najlepsi_z_poslednej, charakteristika)
+
+    sys.stdout = original
+
+
 def riadic():
     """
     Riadiaca funkcia genetickeho algoritmu. Umoznuje pouzivatelovi zvolit rozne rezimy funkcii pre porovnanie vysledkov.
@@ -418,260 +532,124 @@ def riadic():
                  (40, 120), (120, 120), (180, 100), (60, 80), (100, 80), (180, 60), (20, 40), (100, 40),
                  (200, 40), (20, 20), (60, 20), (160, 20)]
 
-    suradnice = zadane_suradnice
-    vyber_rodicov = ruleta
-    pocet_generacii = 2000
-    pocet_clenov_populacie = 40
-    pravdepodobnost_mutacie = 0.1
-    ponechat_najlepsieho = False
-    nova_krv = False
-    vypisy = True
+    pokracovat = "P"
 
-    vyber = -1
-    while vyber not in range(0, 5):
-        oddelovac()
-        print("Zvol 0 pre spustenie so suradnicami zo zadania")
-        print("Zvol 1 pre testovaciu sadu suradnic 1 s testovacimi nastaveniami")
-        print("Zvol 2 pre testovaciu sadu suradnic 2 s testovacimi nastaveniami")
-        print("Zvol 3 pre testovaciu sadu suradnic 3 s testovacimi nastaveniami")
-        print("Zvol 4 pre vygenerovanie novej nahodnej sady suradnic s vlastnymi nastaveniami")
-        vyber = int(input())
-        oddelovac()
-    print("Bola zvolena moznost", vyber)
-    if vyber == 0:
-        suradnice = zadane_suradnice
-    if vyber == 1:
-        seed = 10
-        suradnice = generuj_suradnice()
-        print("Tato moznost zopoveda suradniciam vygenerovanym ranomom so seedom", seed)
-    if vyber == 2:
-        seed = 10
-        suradnice = generuj_suradnice()
-        print("Tato moznost zopoveda suradniciam vygenerovanym ranomom so seedom", seed)
-    if vyber == 3:
-        seed = 10
-        suradnice = generuj_suradnice()
-        print("Tato moznost zopoveda suradniciam vygenerovanym ranomom so seedom", seed)
-    if vyber == 4:
-        seed = int(input("Zadaj seed pre random: "))
-        np_random.seed(seed)
-        suradnice = generuj_suradnice()
-        print("Tato moznost zopoveda suradniciam vygenerovanym ranomom so seedom", seed)
+    while pokracovat == "P":
+        suradnice = None
+        vyber_rodicov = None
+        pocet_generacii = 10000
+        pocet_clenov_populacie = 40
+        pravdepodobnost_mutacie = 0.1
+        ponechat_najlepsieho = True
+        nova_krv = True
+        vypisy = True
 
         vyber = -1
-        while vyber not in range(20, 41):
-            vyber = int(input("Zadaj parny pocet clenov populacie: "))
-        pocet_clenov_populacie = vyber
+        while vyber not in range(0, 9):
+            oddelovac()
+            print("Zvol 0 pre spustenie so suradnicami zo zadania s ruletou")
+            print("Zvol 1 pre spustenie so suradnicami zo zadania s turnajom")
+            print("Zvol 2 pre testovaciu sadu suradnic A s testovacimi nastaveniami a ruletou")
+            print("Zvol 3 pre testovaciu sadu suradnic A s testovacimi nastaveniami a turnajom")
+            print("Zvol 4 pre testovaciu sadu suradnic B s testovacimi nastaveniami a ruletou")
+            print("Zvol 5 pre testovaciu sadu suradnic B s testovacimi nastaveniami a turnajom")
+            print("Zvol 6 pre testovaciu sadu suradnic C s testovacimi nastaveniami a ruletou")
+            print("Zvol 7 pre testovaciu sadu suradnic C s testovacimi nastaveniami a turnajom")
+            print("Zvol 8 pre vygenerovanie novej nahodnej sady suradnic s vlastnymi nastaveniami")
+            vyber = int(input())
+            oddelovac()
+        print("Bola zvolena moznost", vyber)
+        if vyber == 0 or vyber == 1:
+            seed = 3
+            np_random.seed(seed)
+            suradnice = zadane_suradnice
+            vyber_rodicov = ruleta if vyber == 0 else turnaj
+            print("Tato moznost zodpoveda suradniciam zo zadania, cize sa negeneruju. Seed je nastaveny na", seed)
+        if vyber == 2 or vyber == 3:
+            seed = 11
+            np_random.seed(seed)
+            suradnice = generuj_suradnice()
+            vyber_rodicov = ruleta if vyber == 2 else turnaj
+            print("Tato moznost zopoveda suradniciam vygenerovanym randomom so seedom", seed)
+        if vyber == 4 or vyber == 5:
+            seed = 99
+            np_random.seed(seed)
+            suradnice = generuj_suradnice()
+            vyber_rodicov = ruleta if vyber == 4 else turnaj
+            print("Tato moznost zopoveda suradniciam vygenerovanym randomom so seedom", seed)
+        if vyber == 6 or vyber == 7:
+            seed = 111
+            np_random.seed(seed)
+            suradnice = generuj_suradnice()
+            vyber_rodicov = ruleta if vyber == 6 else turnaj
+            print("Tato moznost zopoveda suradniciam vygenerovanym randomom so seedom", seed)
+        if vyber == 8:
+            seed = int(input("Zadaj seed pre random: "))
+            np_random.seed(seed)
+            suradnice = generuj_suradnice()
+            print("Tato moznost zopoveda suradniciam vygenerovanym randomom so seedom", seed)
 
-        vyber = -1
-        while vyber not in range(1, 100001):
-            vyber = int(input("Zadaj pocet generacii: "))
-        pocet_generacii = vyber
+            vyber = -1
+            while vyber not in range(20, 41):
+                vyber = int(input("Zadaj parny pocet clenov populacie: "))
+            pocet_clenov_populacie = vyber
 
-        vyber_2 = "v"
-        while vyber_2 not in ["r", "t"]:
-            vyber_2 = input("Zadaj sposob vyberu rodicov, pre ruletu zvol r, pre turnej zvol t: ")
-        vyber_rodicov = ruleta if vyber_2 == "r" else turnaj
+            vyber = -1
+            while vyber not in range(1, 100001):
+                vyber = int(input("Zadaj pocet generacii: "))
+            pocet_generacii = vyber
 
-        vyber_3 = -1.0
-        while vyber_3 < 0 or vyber_3 > 1:
-            vyber_3 = float(input("Zadaj pravdepodobnosti mutacii deti: "))
-        pravdepodobnost_mutacie = vyber_3
+            vyber_2 = "v"
+            while vyber_2 not in ["r", "t"]:
+                vyber_2 = input("Zadaj sposob vyberu rodicov, pre ruletu zvol r, pre turnej zvol t: ")
+            vyber_rodicov = ruleta if vyber_2 == "r" else turnaj
+
+            vyber_3 = -1.0
+            while vyber_3 < 0 or vyber_3 > 1:
+                vyber_3 = float(input("Zadaj pravdepodobnosti mutacii deti: "))
+            pravdepodobnost_mutacie = vyber_3
+
+            vyber_2 = "v"
+            while vyber_2 not in ["a", "n"]:
+                vyber_2 = input("Ponechat najlepsieho? Zadaj a pre ano, n pre nie: ")
+            ponechat_najlepsieho = True if vyber_2 == "a" else False
+
+            vyber_2 = "v"
+            while vyber_2 not in ["a", "n"]:
+                vyber_2 = input("Pouzit Novu krv? Zadaj a pre ano, n pre nie: ")
+            nova_krv = True if vyber_2 == "a" else False
+
+            vyber_2 = "v"
+            while vyber_2 not in ["a", "n"]:
+                vyber_2 = input("Vypisat vypis kazdych 1000 generacii? Zadaj a pre ano, n pre nie: ")
+            vypisy = True if vyber_2 == "a" else False
+
+        pole_priemerov, pole_maxim, najlepsi_z_poslednej = geneticky_algoritmus(suradnice, vyber_rodicov,
+                                    pocet_generacii=pocet_generacii, pravdepodobnost_mutacie=pravdepodobnost_mutacie,
+                                    pocet_clenov_populacie=pocet_clenov_populacie, ponechat_najlepsieho=ponechat_najlepsieho,
+                                    nova_krv=nova_krv, vypisy=vypisy)
 
         vyber_2 = "v"
         while vyber_2 not in ["a", "n"]:
-            vyber_2 = input("Ponechat najlepsieho? Zadaj a pre ano, n pre nie: ")
-        ponechat_najlepsieho = True if vyber_2 == "a" else False
+            vyber_2 = input("Vygenerovat excel subor s vystupmi? Zadaj a pre ano, n pre nie: ")
+        excel = True if vyber_2 == "a" else False
 
-        vyber_2 = "v"
-        while vyber_2 not in ["a", "n"]:
-            vyber_2 = input("Pouzit Novu krv? Zadaj a pre ano, n pre nie: ")
-        nova_krv = True if vyber_2 == "a" else False
+        if excel:
+            charakteristika = charakterizuj(seed, vyber_rodicov, pocet_generacii, pravdepodobnost_mutacie,
+                             pocet_clenov_populacie, ponechat_najlepsieho, nova_krv)
+            generuj_excel(pole_priemerov, pole_maxim, najlepsi_z_poslednej, charakteristika)
 
-        vyber_2 = "v"
-        while vyber_2 not in ["a", "n"]:
-            vyber_2 = input("Vypisat vypis kazdych 1000 generacii? Zadaj a pre ano, n pre nie: ")
-        vypisy = True if vyber_2 == "a" else False
-
-
-
-
-    geneticky_algoritmus(suradnice, vyber_rodicov, pocet_generacii=pocet_generacii,
-                         pravdepodobnost_mutacie=pravdepodobnost_mutacie,
-                         pocet_clenov_populacie=pocet_clenov_populacie, ponechat_najlepsieho=ponechat_najlepsieho,
-                         nova_krv=nova_krv, vypisy=vypisy)
+        pokracovat = input("Ak si prajete pokracovat, zadajte P: ")
 
 
 def main():
+    """
+    Hlavna funkcia programu. Spusta sa nou riadiaca funkcia genetickeho algoritmu.
+    """
 
-    riadic()
+    automaticky_testovac()
 
-    suradnice = [(60, 200), (180, 200), (100, 180), (140, 180), (20, 160), (80, 160), (200, 160), (140, 140),
-                 (40, 120), (120, 120), (180, 100), (60, 80), (100, 80), (180, 60), (20, 40), (100, 40),
-                 (200, 40), (20, 20), (60, 20), (160, 20)]
-
-    # np_random.seed(None)
-
-    # suradnice = [(0, 0), (5, 3), (8, 12)]
-    # suradnice = [(0, 0)]
-    # suradnice = [(0, 0), (5, 3)]
-
-    # print("Povodny graf")
-    # povodny_graf = graf(suradnice)
-    # print(povodny_graf.pocet_miest)
-    # print(povodny_graf.dlzka_cesty())
-    # print(povodny_graf.fitnes)
-    # print(povodny_graf.fitnes_vypocet())
-    # print(povodny_graf)
-
-    # print("Test spravnosti permutacii")
-    # permutacne_suradnice = []
-    # for i in range(8):
-    #     permutacne_suradnice.append((i, 10-i))
-    # permutacny_graf = graf(permutacne_suradnice)
-    # print(permutacny_graf)
-    # novy_permutacny = permutacny_graf.permutuj()
-    # print(novy_permutacny)
-    # zhoda, nezhoda = 0, 0
-    # for i in range(100):
-    #     novy_permutacny = permutacny_graf.permutuj()
-    #     if set(tuple(row) for row in permutacny_graf.suradnice) == set(tuple(row) for row in novy_permutacny.suradnice):
-    #         zhoda += 1
-    #     else:
-    #         nezhoda += 1
-    # print(zhoda, nezhoda)
-
-    # print("Nahodna permutacia povodneho grafu")
-    # novy_graf = povodny_graf.permutuj()
-    # print(novy_graf.pocet_miest)
-    # print(novy_graf.dlzka_cesty())
-    # print(novy_graf.fitnes)
-    # print(novy_graf.fitnes_vypocet())
-    # print(novy_graf)
-    # novy_graf.mutacia(0.8)
-    # print("Po mutacii")
-    # print(novy_graf)
-
-    # print("Test vyskytu mutacii")
-    # ano, nie = 0, 0
-    # for i in range(100):
-    #     stare = novy_graf.suradnice.copy()
-    #     novy_graf.mutacia(0.8)
-    #     if stare != novy_graf.suradnice:
-    #         # print("---------- Teraz sa mutovalo")
-    #         ano += 1
-    #     else:
-    #         # print("---------- Teraz sa NEMUTOVALO")
-    #         nie += 1
-    # print(ano, nie)
-
-    # print("Kontrolny graf")
-    # kontrola = [15, 14, 11, 13, 19, 17, 10, 6, 4, 3, 0, 16, 5, 9, 8, 2, 12, 18, 1, 7]
-    # kontrolne_suradnice = []
-    # for index in kontrola:
-    #     kontrolne_suradnice.append(suradnice[index])
-    # kontrolny_graf = graf(kontrolne_suradnice)
-    # print(kontrolny_graf.pocet_miest)
-    # print(kontrolny_graf.dlzka_cesty())
-    # print(kontrolny_graf.fitnes)
-    # print(kontrolny_graf.fitnes_vypocet())
-    # kontrolny_graf.test_pravdepodobnosti(0.3)
-
-    # print("Tvorba deti z rodicov")
-    # dummy_suradnice_tuples = [(10, 10), (11, 11), (12, 12), (13, 13), (14, 14), (15, 15), (16, 16), (17, 17), (18, 18), (19, 19)]
-    # dummy_suradnice_lists = [list(suradnica) for suradnica in dummy_suradnice_tuples]
-    # graf_rodic_1 = graf(dummy_suradnice_lists)
-    # # graf_rodic_2 = graf_rodic_1.permutuj()
-    # graf_rodic_2 = graf([[17, 17], [10, 10], [16, 16], [15, 15], [18, 18], [14, 14], [12, 12], [11, 11], [13, 13], [19, 19]])
-    # porod(graf_rodic_1, graf_rodic_2)
-
-    # print("Vazeny vyber rodicov")
-    # pole_indexov = range(10)
-    # nahodne_suradnice = [[17, 17], [10, 10], [16, 16], [15, 15], [18, 18], [14, 14], [12, 12], [11, 11], [13, 13], [19, 19]]
-    # pravdepodobnosti = [0.05, 0.06, 0.07, 0.08, 0.09, 0.05, 0.04, 0.03, 0.02, 0.01]
-    # koeficient = 1/sum(pravdepodobnosti)
-    # pravdepodobnosti = [prvok*koeficient for prvok in pravdepodobnosti]
-    # pole_indexov = range(len(nahodne_suradnice))
-    # vyber = np_random.choice(pole_indexov, 2, p=pravdepodobnosti)
-    # print(vyber)
-    # print(nahodne_suradnice[vyber[0]], nahodne_suradnice[vyber[1]])
-
-    # print("Test genetickeho algoritmu")
-    # dummy_suradnice_tuples2 = [(10, 10), (11, 11), (12, 12), (13, 13), (14, 14), (15, 15), (16, 16), (17, 17), (18, 18),
-    #                           (19, 19)]
-    # nahodne_suradnice2 = [[17, 17], [10, 10], [16, 16], [15, 15], [18, 18], [14, 14], [12, 12], [11, 11], [13, 13],
-    #                      [19, 19]]
-    # geneticky_algoritmus(dummy_suradnice_tuples2)
-    # geneticky_algoritmus(nahodne_suradnice2)
-
-    # print("Geneticky algoritmus na povodnom grafe")
-    # geneticky_algoritmus(suradnice, ruleta, ponechat_najlepsieho=True, nova_krv=True, pocet_generacii=10000)
-
-    # print("Rozne suradnice")
-    # www-m9.ma.tum.de
-    # Kod hry E005GR0bdfc058e265c7a51ff68b17616785ac4
-    # Length of the optimal tour: 1723.8 pixel
-    # geneticky_algoritmus([[15, 1], [30, 3], [22, 29], [52, 46], [1, 49]], ruleta, ponechat_najlepsieho=True,
-    #                      nova_krv=False, pocet_generacii=100)
-    # oddelovac()
-    # geneticky_algoritmus([[15, 1], [30, 3], [22, 29], [52, 46], [1, 49]], turnaj, ponechat_najlepsieho=True,
-    #                      nova_krv=False, pocet_generacii=100)
-
-    # print(np_random.get_state())
-
-    # np_random.seed(0)
-    # df = pd.DataFrame()
-    # stlpec = 0
-    # for i in range(3):
-    #     print("Pokus {}".format(i + 1))
-    #     # pole_priemerov, najlepsi_fitnes = geneticky_algoritmus([[15, 1], [30, 3], [22, 29], [52, 46], [1, 49]], ruleta,
-    #     #                                         ponechat_najlepsieho=True, nova_krv=True, pocet_generacii=50)
-    #     pole_priemerov, pole_maxim, najlepsi_jedinec = geneticky_algoritmus(suradnice, turnaj, ponechat_najlepsieho=True,
-    #                                                            nova_krv=True, pocet_generacii=5000, vypisy=True)
-    #     oddelovac(znak="#")
-    #     pole_priemerov.append(" ")
-    #     pole_priemerov.append("Fitnes celkoveho najlepsieho")
-    #     pole_priemerov.append(najlepsi_jedinec.get_fitnes())
-    #     df.insert(stlpec, "Pokus {} Priemer".format(i + 1), pole_priemerov, True)
-    #     stlpec += 1
-    #     pole_maxim.append(" ")
-    #     pole_maxim.append("Fitnes celkoveho najlepsieho")
-    #     pole_maxim.append(najlepsi_jedinec.get_fitnes())
-    #     df.insert(stlpec, "Pokus {} Maximum".format(i + 1), pole_maxim, True)
-    #     stlpec += 1
-    #
-    # df.to_excel("Test3_turnaj.xlsx", index=True)
-    #
-    # np_random.seed(0)
-    # df = pd.DataFrame()
-    # stlpec = 0
-    # for i in range(3):
-    #     print("Pokus {}".format(i + 1))
-    #     # pole_priemerov, najlepsi_fitnes = geneticky_algoritmus([[15, 1], [30, 3], [22, 29], [52, 46], [1, 49]], ruleta,
-    #     #                                         ponechat_najlepsieho=True, nova_krv=True, pocet_generacii=50)
-    #     pole_priemerov, pole_maxim, najlepsi_jedinec = geneticky_algoritmus(suradnice, ruleta, ponechat_najlepsieho=True,
-    #                                                            nova_krv=True, pocet_generacii=5000, vypisy=True)
-    #     oddelovac(znak="#")
-    #     pole_priemerov.append(" ")
-    #     pole_priemerov.append("Fitnes celkoveho najlepsieho")
-    #     pole_priemerov.append(najlepsi_jedinec.get_fitnes())
-    #     df.insert(stlpec, "Pokus {} Priemer".format(i + 1), pole_priemerov, True)
-    #     stlpec += 1
-    #     pole_maxim.append(" ")
-    #     pole_maxim.append("Fitnes celkoveho najlepsieho")
-    #     pole_maxim.append(najlepsi_jedinec.get_fitnes())
-    #     df.insert(stlpec, "Pokus {} Maximum".format(i + 1), pole_maxim, True)
-    #     stlpec += 1
-    #
-    # df.to_excel("Test3_ruleta.xlsx", index=True)
-
-    # dvojice_rodicov = turnaj(6, [0,1,2,3,4,5], [0.1, 0.05, 0.2, 0.04, 0.15, 0.18])
-    # print(dvojice_rodicov)
-    # dvojice_rodicov = ruleta(6, [0,1,2,3,4,5], [0.1, 0.05, 0.2, 0.04, 0.15, 0.18])
-    # print(dvojice_rodicov)
-
-    # geneticky_algoritmus(suradnice, turnaj, ponechat_najlepsieho=True, nova_krv=True, pocet_generacii=10000)
-
+    # riadic()
 
 
 if __name__ == "__main__":
