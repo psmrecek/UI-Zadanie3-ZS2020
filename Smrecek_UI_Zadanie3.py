@@ -303,6 +303,7 @@ def geneticky_algoritmus(povodne_suradnice, vyber_rodicov, pocet_generacii=2000,
             generaciach a najlepsieho jedinca z poslednej generacie
     """
 
+    oddelovac(znak="#")
     print("Start genetickeho algoritmu")
     print("Povodne suradnice", povodne_suradnice)
     print("Vyber rodicov", vyber_rodicov.__name__)
@@ -375,29 +376,135 @@ def geneticky_algoritmus(povodne_suradnice, vyber_rodicov, pocet_generacii=2000,
                     (najlepsi_jedinec_zo_vsetkych.get_dlzka())))
                 oddelovac()
 
-    if vypisy:
-        najlepsi_z_poslednej = najdi_najlepsieho(populacia)
-        print(
-            "S dlzkou cesty {} je najlepsi najdeny jedinec z poslednej populacie:".format(najlepsi_z_poslednej.get_dlzka()))
-        print(najlepsi_z_poslednej)
-        print("Jeho fitnes je", najlepsi_z_poslednej.get_fitnes())
-        if najlepsi_z_poslednej.get_dlzka() != najlepsi_jedinec_zo_vsetkych.get_dlzka():
-            print("Najlepsi jedinec z poslednej populacie je iny ako najlepsi jedinec zo vsetkych populacii.")
-            print("Najlepsi jedinec zo vsetkych populacii s dlzkou {} "
-                  "je:".format((najlepsi_jedinec_zo_vsetkych.get_dlzka())))
-            print(najlepsi_jedinec_zo_vsetkych)
-            print("Jeho fitnes je", najlepsi_jedinec_zo_vsetkych.get_fitnes())
-        oddelovac()
+    najlepsi_z_poslednej = najdi_najlepsieho(populacia)
+    print(
+        "S dlzkou cesty {} je najlepsi najdeny jedinec z poslednej populacie:".format(najlepsi_z_poslednej.get_dlzka()))
+    print(najlepsi_z_poslednej)
+    print("Jeho fitnes je", najlepsi_z_poslednej.get_fitnes())
+    if najlepsi_z_poslednej.get_dlzka() != najlepsi_jedinec_zo_vsetkych.get_dlzka():
+        print("Najlepsi jedinec z poslednej populacie je iny ako najlepsi jedinec zo vsetkych populacii.")
+        print("Najlepsi jedinec zo vsetkych populacii s dlzkou {} "
+              "je:".format((najlepsi_jedinec_zo_vsetkych.get_dlzka())))
+        print(najlepsi_jedinec_zo_vsetkych)
+        print("Jeho fitnes je", najlepsi_jedinec_zo_vsetkych.get_fitnes())
+    oddelovac()
 
     return pole_priemerov, pole_maxim, najlepsi_z_poslednej
+
+def generuj_suradnice():
+    """
+    Funkcia na generovanie nahodneho poctu miest z rozmedzia <20; 40> so suradnicami <0; 200>
+    :return: List suradnic miest
+    """
+
+    pocet_miest = np_random.randint(20, 41)
+    suradnice = []
+
+    while len(suradnice) != pocet_miest:
+        x = np_random.randint(0, 201)
+        y = np_random.randint(0, 201)
+        mesto = [x, y]
+        if mesto not in suradnice:
+            suradnice.append(mesto)
+    return suradnice
+
 
 def riadic():
     """
     Riadiaca funkcia genetickeho algoritmu. Umoznuje pouzivatelovi zvolit rozne rezimy funkcii pre porovnanie vysledkov.
     """
-    pass
+
+    zadane_suradnice = [(60, 200), (180, 200), (100, 180), (140, 180), (20, 160), (80, 160), (200, 160), (140, 140),
+                 (40, 120), (120, 120), (180, 100), (60, 80), (100, 80), (180, 60), (20, 40), (100, 40),
+                 (200, 40), (20, 20), (60, 20), (160, 20)]
+
+    suradnice = zadane_suradnice
+    vyber_rodicov = ruleta
+    pocet_generacii = 2000
+    pocet_clenov_populacie = 40
+    pravdepodobnost_mutacie = 0.1
+    ponechat_najlepsieho = False
+    nova_krv = False
+    vypisy = True
+
+    vyber = -1
+    while vyber not in range(0, 5):
+        oddelovac()
+        print("Zvol 0 pre spustenie so suradnicami zo zadania")
+        print("Zvol 1 pre testovaciu sadu suradnic 1 s testovacimi nastaveniami")
+        print("Zvol 2 pre testovaciu sadu suradnic 2 s testovacimi nastaveniami")
+        print("Zvol 3 pre testovaciu sadu suradnic 3 s testovacimi nastaveniami")
+        print("Zvol 4 pre vygenerovanie novej nahodnej sady suradnic s vlastnymi nastaveniami")
+        vyber = int(input())
+        oddelovac()
+    print("Bola zvolena moznost", vyber)
+    if vyber == 0:
+        suradnice = zadane_suradnice
+    if vyber == 1:
+        seed = 10
+        suradnice = generuj_suradnice()
+        print("Tato moznost zopoveda suradniciam vygenerovanym ranomom so seedom", seed)
+    if vyber == 2:
+        seed = 10
+        suradnice = generuj_suradnice()
+        print("Tato moznost zopoveda suradniciam vygenerovanym ranomom so seedom", seed)
+    if vyber == 3:
+        seed = 10
+        suradnice = generuj_suradnice()
+        print("Tato moznost zopoveda suradniciam vygenerovanym ranomom so seedom", seed)
+    if vyber == 4:
+        seed = int(input("Zadaj seed pre random: "))
+        np_random.seed(seed)
+        suradnice = generuj_suradnice()
+        print("Tato moznost zopoveda suradniciam vygenerovanym ranomom so seedom", seed)
+
+        vyber = -1
+        while vyber not in range(20, 41):
+            vyber = int(input("Zadaj parny pocet clenov populacie: "))
+        pocet_clenov_populacie = vyber
+
+        vyber = -1
+        while vyber not in range(1, 100001):
+            vyber = int(input("Zadaj pocet generacii: "))
+        pocet_generacii = vyber
+
+        vyber_2 = "v"
+        while vyber_2 not in ["r", "t"]:
+            vyber_2 = input("Zadaj sposob vyberu rodicov, pre ruletu zvol r, pre turnej zvol t: ")
+        vyber_rodicov = ruleta if vyber_2 == "r" else turnaj
+
+        vyber_3 = -1.0
+        while vyber_3 < 0 or vyber_3 > 1:
+            vyber_3 = float(input("Zadaj pravdepodobnosti mutacii deti: "))
+        pravdepodobnost_mutacie = vyber_3
+
+        vyber_2 = "v"
+        while vyber_2 not in ["a", "n"]:
+            vyber_2 = input("Ponechat najlepsieho? Zadaj a pre ano, n pre nie: ")
+        ponechat_najlepsieho = True if vyber_2 == "a" else False
+
+        vyber_2 = "v"
+        while vyber_2 not in ["a", "n"]:
+            vyber_2 = input("Pouzit Novu krv? Zadaj a pre ano, n pre nie: ")
+        nova_krv = True if vyber_2 == "a" else False
+
+        vyber_2 = "v"
+        while vyber_2 not in ["a", "n"]:
+            vyber_2 = input("Vypisat vypis kazdych 1000 generacii? Zadaj a pre ano, n pre nie: ")
+        vypisy = True if vyber_2 == "a" else False
+
+
+
+
+    geneticky_algoritmus(suradnice, vyber_rodicov, pocet_generacii=pocet_generacii,
+                         pravdepodobnost_mutacie=pravdepodobnost_mutacie,
+                         pocet_clenov_populacie=pocet_clenov_populacie, ponechat_najlepsieho=ponechat_najlepsieho,
+                         nova_krv=nova_krv, vypisy=vypisy)
+
 
 def main():
+
+    riadic()
 
     suradnice = [(60, 200), (180, 200), (100, 180), (140, 180), (20, 160), (80, 160), (200, 160), (140, 140),
                  (40, 120), (120, 120), (180, 100), (60, 80), (100, 80), (180, 60), (20, 40), (100, 40),
@@ -497,8 +604,8 @@ def main():
     # geneticky_algoritmus(dummy_suradnice_tuples2)
     # geneticky_algoritmus(nahodne_suradnice2)
 
-    print("Geneticky algoritmus na povodnom grafe")
-    geneticky_algoritmus(suradnice, ruleta, ponechat_najlepsieho=True, nova_krv=True, pocet_generacii=10000)
+    # print("Geneticky algoritmus na povodnom grafe")
+    # geneticky_algoritmus(suradnice, ruleta, ponechat_najlepsieho=True, nova_krv=True, pocet_generacii=10000)
 
     # print("Rozne suradnice")
     # www-m9.ma.tum.de
