@@ -374,7 +374,7 @@ def geneticky_algoritmus(povodne_suradnice, vyber_rodicov, pocet_generacii=2000,
                 print("Oznacenie generacie", cislo_generacie)
                 print("Priemerny fitnes populacie v tejto generacii je ", priemerny_fitnes_populacie)
                 print("Najlepsi jedinec tejto generacie ma fitnes", najlepsi_z_populacie.get_fitnes())
-                print("Najlepsi jedinec zo vsetkych populacii s dlzkou {} je:".format(
+                print("Najlepsi jedinec zo vsetkych populacii s dlzkou {}".format(
                     (najlepsi_jedinec_zo_vsetkych.get_dlzka())))
                 oddelovac()
 
@@ -647,9 +647,9 @@ def main():
     Hlavna funkcia programu. Spusta sa nou riadiaca funkcia genetickeho algoritmu.
     """
 
-    automaticky_testovac()
+    # automaticky_testovac()
 
-    # riadic()
+    riadic()
 
 
 if __name__ == "__main__":
