@@ -1,0 +1,634 @@
+Bola zvolena moznost 0
+Tato moznost zodpoveda suradniciam zo zadania, cize sa negeneruju. Seed je nastaveny na 3
+######################################################################################################################################################
+Start genetickeho algoritmu
+Povodne suradnice [(60, 200), (180, 200), (100, 180), (140, 180), (20, 160), (80, 160), (200, 160), (140, 140), (40, 120), (120, 120), (180, 100), (60, 80), (100, 80), (180, 60), (20, 40), (100, 40), (200, 40), (20, 20), (60, 20), (160, 20)]
+Vyber rodicov ruleta
+Pocet generacii 10000
+Pocet clenov populacie 40
+Pravdepodobnost mutacii deti 0.1
+Najhorsie z deti je nahradene najlepsim clenom z predoslej populacie
+2 nahodne deti v kazdej generacii su nahradene 2 novymi permutaciami
+Ciastkove vypisy pocas evolucie aktivne
+Poradove cislo generacie 1000
+Oznacenie generacie 999
+Priemerny fitnes populacie v tejto generacii je  0.0005775180554327394
+Najlepsi jedinec tejto generacie ma fitnes 0.0008190285582208229
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1011.7221258687342
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 2000
+Oznacenie generacie 1999
+Priemerny fitnes populacie v tejto generacii je  0.0006883745171631778
+Najlepsi jedinec tejto generacie ma fitnes 0.0010038284311515108
+Najlepsi jedinec zo vsetkych populacii s dlzkou 944.6563453838712
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 3000
+Oznacenie generacie 2999
+Priemerny fitnes populacie v tejto generacii je  0.0007460544673314293
+Najlepsi jedinec tejto generacie ma fitnes 0.000960980415124207
+Najlepsi jedinec zo vsetkych populacii s dlzkou 909.0603464397684
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 4000
+Oznacenie generacie 3999
+Priemerny fitnes populacie v tejto generacii je  0.0009849477768749033
+Najlepsi jedinec tejto generacie ma fitnes 0.0011000369820511767
+Najlepsi jedinec zo vsetkych populacii s dlzkou 909.0603464397684
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 5000
+Oznacenie generacie 4999
+Priemerny fitnes populacie v tejto generacii je  0.0007635112407735742
+Najlepsi jedinec tejto generacie ma fitnes 0.001042646288013378
+Najlepsi jedinec zo vsetkych populacii s dlzkou 909.0603464397684
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 6000
+Oznacenie generacie 5999
+Priemerny fitnes populacie v tejto generacii je  0.0009161663269168004
+Najlepsi jedinec tejto generacie ma fitnes 0.0011092762074889476
+Najlepsi jedinec zo vsetkych populacii s dlzkou 901.4887304431468
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 7000
+Oznacenie generacie 6999
+Priemerny fitnes populacie v tejto generacii je  0.0006501335482787288
+Najlepsi jedinec tejto generacie ma fitnes 0.0009569882336402024
+Najlepsi jedinec zo vsetkych populacii s dlzkou 901.4887304431468
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 8000
+Oznacenie generacie 7999
+Priemerny fitnes populacie v tejto generacii je  0.0009656245490981908
+Najlepsi jedinec tejto generacie ma fitnes 0.0011092762074889476
+Najlepsi jedinec zo vsetkych populacii s dlzkou 901.4887304431468
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 9000
+Oznacenie generacie 8999
+Priemerny fitnes populacie v tejto generacii je  0.0008776108408426198
+Najlepsi jedinec tejto generacie ma fitnes 0.0011092762074889476
+Najlepsi jedinec zo vsetkych populacii s dlzkou 901.4887304431468
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 10000
+Oznacenie generacie 9999
+Priemerny fitnes populacie v tejto generacii je  0.0006517359478357669
+Najlepsi jedinec tejto generacie ma fitnes 0.0008446273798952312
+Najlepsi jedinec zo vsetkych populacii s dlzkou 895.706325022881
+------------------------------------------------------------------------------------------------------------------------------------------------------
+S dlzkou cesty 895.706325022881 je najlepsi najdeny jedinec z poslednej populacie:
+[200, 160] [180, 100] [180, 60] [200, 40] [160, 20] [100, 80] [100, 40] [60, 20] [20, 20] [20, 40]
+[60, 80] [40, 120] [20, 160] [60, 200] [100, 180] [80, 160] [120, 120] [140, 140] [180, 200] [140, 180]
+Jeho fitnes je 0.001116437354592148
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Bol vygenerovany subor s vystupmi "2020-11-22--16-52-39-S3VrG10000C40M0.1NtKt.xlsx"
+Bola zvolena moznost 1
+Tato moznost zodpoveda suradniciam zo zadania, cize sa negeneruju. Seed je nastaveny na 3
+######################################################################################################################################################
+Start genetickeho algoritmu
+Povodne suradnice [(60, 200), (180, 200), (100, 180), (140, 180), (20, 160), (80, 160), (200, 160), (140, 140), (40, 120), (120, 120), (180, 100), (60, 80), (100, 80), (180, 60), (20, 40), (100, 40), (200, 40), (20, 20), (60, 20), (160, 20)]
+Vyber rodicov turnaj
+Pocet generacii 10000
+Pocet clenov populacie 40
+Pravdepodobnost mutacii deti 0.1
+Najhorsie z deti je nahradene najlepsim clenom z predoslej populacie
+2 nahodne deti v kazdej generacii su nahradene 2 novymi permutaciami
+Ciastkove vypisy pocas evolucie aktivne
+Poradove cislo generacie 1000
+Oznacenie generacie 999
+Priemerny fitnes populacie v tejto generacii je  0.0008451302243794194
+Najlepsi jedinec tejto generacie ma fitnes 0.0008558128472801401
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1168.4797712234647
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 2000
+Oznacenie generacie 1999
+Priemerny fitnes populacie v tejto generacii je  0.0008455231006365334
+Najlepsi jedinec tejto generacie ma fitnes 0.0008558128472801401
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1168.4797712234647
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 3000
+Oznacenie generacie 2999
+Priemerny fitnes populacie v tejto generacii je  0.0008355007633411808
+Najlepsi jedinec tejto generacie ma fitnes 0.0008558128472801401
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1168.4797712234647
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 4000
+Oznacenie generacie 3999
+Priemerny fitnes populacie v tejto generacii je  0.000828745550524603
+Najlepsi jedinec tejto generacie ma fitnes 0.0008558128472801401
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1168.4797712234647
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 5000
+Oznacenie generacie 4999
+Priemerny fitnes populacie v tejto generacii je  0.0008389189797313191
+Najlepsi jedinec tejto generacie ma fitnes 0.0008558128472801401
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1168.4797712234647
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 6000
+Oznacenie generacie 5999
+Priemerny fitnes populacie v tejto generacii je  0.0008407404757312944
+Najlepsi jedinec tejto generacie ma fitnes 0.0008558128472801401
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1168.4797712234647
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 7000
+Oznacenie generacie 6999
+Priemerny fitnes populacie v tejto generacii je  0.0008438080472392117
+Najlepsi jedinec tejto generacie ma fitnes 0.0008558128472801401
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1168.4797712234647
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 8000
+Oznacenie generacie 7999
+Priemerny fitnes populacie v tejto generacii je  0.0008429999740938813
+Najlepsi jedinec tejto generacie ma fitnes 0.0008558128472801401
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1168.4797712234647
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 9000
+Oznacenie generacie 8999
+Priemerny fitnes populacie v tejto generacii je  0.0008875525892727091
+Najlepsi jedinec tejto generacie ma fitnes 0.0009012849177163344
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1109.527054478831
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 10000
+Oznacenie generacie 9999
+Priemerny fitnes populacie v tejto generacii je  0.0008857190289803744
+Najlepsi jedinec tejto generacie ma fitnes 0.0009012849177163344
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1109.527054478831
+------------------------------------------------------------------------------------------------------------------------------------------------------
+S dlzkou cesty 1109.527054478831 je najlepsi najdeny jedinec z poslednej populacie:
+[200, 160] [180, 100] [140, 180] [80, 160] [100, 80] [100, 40] [180, 60] [200, 40] [160, 20] [60, 20]
+[20, 20] [20, 40] [60, 80] [40, 120] [20, 160] [60, 200] [100, 180] [120, 120] [140, 140] [180, 200]
+Jeho fitnes je 0.0009012849177163344
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Bol vygenerovany subor s vystupmi "2020-11-22--16-53-12-S3VtG10000C40M0.1NtKt.xlsx"
+Bola zvolena moznost 2
+Tato moznost zopoveda suradniciam vygenerovanym randomom so seedom 11
+######################################################################################################################################################
+Start genetickeho algoritmu
+Povodne suradnice [[91, 81], [183, 13], [76, 161], [71, 82], [24, 109], [92, 176], [160, 45], [125, 132], [34, 140], [129, 74], [37, 81], [91, 152], [145, 67], [70, 171], [114, 192], [125, 79], [96, 23], [155, 70], [89, 107], [138, 185], [27, 44], [142, 7], [183, 79], [192, 168], [27, 133], [181, 71], [178, 187], [1, 131], [136, 68], [72, 114], [160, 78], [19, 153], [117, 90], [166, 187], [17, 43], [18, 48]]
+Vyber rodicov ruleta
+Pocet generacii 10000
+Pocet clenov populacie 40
+Pravdepodobnost mutacii deti 0.1
+Najhorsie z deti je nahradene najlepsim clenom z predoslej populacie
+2 nahodne deti v kazdej generacii su nahradene 2 novymi permutaciami
+Ciastkove vypisy pocas evolucie aktivne
+Poradove cislo generacie 1000
+Oznacenie generacie 999
+Priemerny fitnes populacie v tejto generacii je  0.00042319717312373556
+Najlepsi jedinec tejto generacie ma fitnes 0.0004913620074584908
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1720.0713438083926
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 2000
+Oznacenie generacie 1999
+Priemerny fitnes populacie v tejto generacii je  0.0006878876588372466
+Najlepsi jedinec tejto generacie ma fitnes 0.0008325721771770826
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1201.0970669120818
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 3000
+Oznacenie generacie 2999
+Priemerny fitnes populacie v tejto generacii je  0.0006959667982958492
+Najlepsi jedinec tejto generacie ma fitnes 0.0008559427933169983
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1168.3023769903396
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 4000
+Oznacenie generacie 3999
+Priemerny fitnes populacie v tejto generacii je  0.0008296526022891753
+Najlepsi jedinec tejto generacie ma fitnes 0.0008831656005623452
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1132.290477984267
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 5000
+Oznacenie generacie 4999
+Priemerny fitnes populacie v tejto generacii je  0.0006671534474034658
+Najlepsi jedinec tejto generacie ma fitnes 0.0008698013874047966
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1132.290477984267
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 6000
+Oznacenie generacie 5999
+Priemerny fitnes populacie v tejto generacii je  0.0007703951729036239
+Najlepsi jedinec tejto generacie ma fitnes 0.0008933057593983029
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1119.4375380200865
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 7000
+Oznacenie generacie 6999
+Priemerny fitnes populacie v tejto generacii je  0.0008851122523208145
+Najlepsi jedinec tejto generacie ma fitnes 0.0009554026625941174
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1046.6791010240556
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 8000
+Oznacenie generacie 7999
+Priemerny fitnes populacie v tejto generacii je  0.0007430235964567578
+Najlepsi jedinec tejto generacie ma fitnes 0.0009554026625941174
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1046.6791010240556
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 9000
+Oznacenie generacie 8999
+Priemerny fitnes populacie v tejto generacii je  0.0008401710331853729
+Najlepsi jedinec tejto generacie ma fitnes 0.0009554026625941174
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1046.6791010240556
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 10000
+Oznacenie generacie 9999
+Priemerny fitnes populacie v tejto generacii je  0.0006646305311797776
+Najlepsi jedinec tejto generacie ma fitnes 0.0009554026625941174
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1046.6791010240556
+------------------------------------------------------------------------------------------------------------------------------------------------------
+S dlzkou cesty 1046.6791010240556 je najlepsi najdeny jedinec z poslednej populacie:
+[114, 192] [138, 185] [166, 187] [178, 187] [192, 168] [125, 132] [91, 152] [92, 176] [70, 171] [19, 153]
+[1, 131] [24, 109] [72, 114] [89, 107] [71, 82] [91, 81] [117, 90] [125, 79] [129, 74] [136, 68]
+[145, 67] [155, 70] [160, 78] [183, 79] [181, 71] [160, 45] [183, 13] [142, 7] [96, 23] [27, 44]
+[17, 43] [18, 48] [37, 81] [27, 133] [34, 140] [76, 161] 
+Jeho fitnes je 0.0009554026625941174
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Bol vygenerovany subor s vystupmi "2020-11-22--16-53-57-S11VrG10000C40M0.1NtKt.xlsx"
+Bola zvolena moznost 3
+Tato moznost zopoveda suradniciam vygenerovanym randomom so seedom 11
+######################################################################################################################################################
+Start genetickeho algoritmu
+Povodne suradnice [[91, 81], [183, 13], [76, 161], [71, 82], [24, 109], [92, 176], [160, 45], [125, 132], [34, 140], [129, 74], [37, 81], [91, 152], [145, 67], [70, 171], [114, 192], [125, 79], [96, 23], [155, 70], [89, 107], [138, 185], [27, 44], [142, 7], [183, 79], [192, 168], [27, 133], [181, 71], [178, 187], [1, 131], [136, 68], [72, 114], [160, 78], [19, 153], [117, 90], [166, 187], [17, 43], [18, 48]]
+Vyber rodicov turnaj
+Pocet generacii 10000
+Pocet clenov populacie 40
+Pravdepodobnost mutacii deti 0.1
+Najhorsie z deti je nahradene najlepsim clenom z predoslej populacie
+2 nahodne deti v kazdej generacii su nahradene 2 novymi permutaciami
+Ciastkove vypisy pocas evolucie aktivne
+Poradove cislo generacie 1000
+Oznacenie generacie 999
+Priemerny fitnes populacie v tejto generacii je  0.0006534577849207236
+Najlepsi jedinec tejto generacie ma fitnes 0.0006631242978868106
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1508.0129067607943
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 2000
+Oznacenie generacie 1999
+Priemerny fitnes populacie v tejto generacii je  0.0006522760149343169
+Najlepsi jedinec tejto generacie ma fitnes 0.0006631242978868106
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1508.0129067607943
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 3000
+Oznacenie generacie 2999
+Priemerny fitnes populacie v tejto generacii je  0.0006511631825840806
+Najlepsi jedinec tejto generacie ma fitnes 0.0006631242978868106
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1508.0129067607943
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 4000
+Oznacenie generacie 3999
+Priemerny fitnes populacie v tejto generacii je  0.000652942896843896
+Najlepsi jedinec tejto generacie ma fitnes 0.0006631242978868106
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1508.0129067607943
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 5000
+Oznacenie generacie 4999
+Priemerny fitnes populacie v tejto generacii je  0.0006505217544975938
+Najlepsi jedinec tejto generacie ma fitnes 0.0006631242978868106
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1508.0129067607943
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 6000
+Oznacenie generacie 5999
+Priemerny fitnes populacie v tejto generacii je  0.0006533896103942188
+Najlepsi jedinec tejto generacie ma fitnes 0.0006631242978868106
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1508.0129067607943
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 7000
+Oznacenie generacie 6999
+Priemerny fitnes populacie v tejto generacii je  0.0006501903625800618
+Najlepsi jedinec tejto generacie ma fitnes 0.0006631242978868106
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1508.0129067607943
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 8000
+Oznacenie generacie 7999
+Priemerny fitnes populacie v tejto generacii je  0.0006465268685916818
+Najlepsi jedinec tejto generacie ma fitnes 0.0006631242978868106
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1508.0129067607943
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 9000
+Oznacenie generacie 8999
+Priemerny fitnes populacie v tejto generacii je  0.0006522715618119606
+Najlepsi jedinec tejto generacie ma fitnes 0.0006631242978868106
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1508.0129067607943
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 10000
+Oznacenie generacie 9999
+Priemerny fitnes populacie v tejto generacii je  0.0006586013767353982
+Najlepsi jedinec tejto generacie ma fitnes 0.0006678059955743447
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1497.440883470884
+------------------------------------------------------------------------------------------------------------------------------------------------------
+S dlzkou cesty 1497.440883470884 je najlepsi najdeny jedinec z poslednej populacie:
+[125, 132] [192, 168] [178, 187] [166, 187] [183, 79] [181, 71] [160, 78] [155, 70] [160, 45] [136, 68]
+[89, 107] [96, 23] [27, 44] [17, 43] [18, 48] [37, 81] [24, 109] [71, 82] [138, 185] [114, 192]
+[91, 152] [91, 81] [125, 79] [142, 7] [183, 13] [145, 67] [129, 74] [117, 90] [72, 114] [34, 140]
+[27, 133] [1, 131] [19, 153] [70, 171] [76, 161] [92, 176] 
+Jeho fitnes je 0.0006678059955743447
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Bol vygenerovany subor s vystupmi "2020-11-22--16-54-44-S11VtG10000C40M0.1NtKt.xlsx"
+Bola zvolena moznost 4
+Tato moznost zopoveda suradniciam vygenerovanym randomom so seedom 99
+######################################################################################################################################################
+Start genetickeho algoritmu
+Povodne suradnice [[35, 185], [168, 68], [197, 180], [129, 151], [35, 55], [193, 176], [59, 107], [130, 192], [140, 168], [200, 20], [59, 39], [79, 47], [27, 62], [62, 17], [73, 160], [21, 169], [99, 19], [22, 154], [178, 187], [5, 140], [96, 181]]
+Vyber rodicov ruleta
+Pocet generacii 10000
+Pocet clenov populacie 40
+Pravdepodobnost mutacii deti 0.1
+Najhorsie z deti je nahradene najlepsim clenom z predoslej populacie
+2 nahodne deti v kazdej generacii su nahradene 2 novymi permutaciami
+Ciastkove vypisy pocas evolucie aktivne
+Poradove cislo generacie 1000
+Oznacenie generacie 999
+Priemerny fitnes populacie v tejto generacii je  0.0007779289490182142
+Najlepsi jedinec tejto generacie ma fitnes 0.0010841501862763041
+Najlepsi jedinec zo vsetkych populacii s dlzkou 922.3814307818993
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 2000
+Oznacenie generacie 1999
+Priemerny fitnes populacie v tejto generacii je  0.0009104126013280195
+Najlepsi jedinec tejto generacie ma fitnes 0.0010841501862763041
+Najlepsi jedinec zo vsetkych populacii s dlzkou 922.3814307818993
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 3000
+Oznacenie generacie 2999
+Priemerny fitnes populacie v tejto generacii je  0.0009694637766933664
+Najlepsi jedinec tejto generacie ma fitnes 0.0010841501862763041
+Najlepsi jedinec zo vsetkych populacii s dlzkou 922.3814307818993
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 4000
+Oznacenie generacie 3999
+Priemerny fitnes populacie v tejto generacii je  0.0009598174705612675
+Najlepsi jedinec tejto generacie ma fitnes 0.0010572669862439592
+Najlepsi jedinec zo vsetkych populacii s dlzkou 922.3814307818993
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 5000
+Oznacenie generacie 4999
+Priemerny fitnes populacie v tejto generacii je  0.0010128922337387053
+Najlepsi jedinec tejto generacie ma fitnes 0.0010841501862763041
+Najlepsi jedinec zo vsetkych populacii s dlzkou 922.3814307818993
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 6000
+Oznacenie generacie 5999
+Priemerny fitnes populacie v tejto generacii je  0.000895144698297931
+Najlepsi jedinec tejto generacie ma fitnes 0.0010841501862763041
+Najlepsi jedinec zo vsetkych populacii s dlzkou 922.3814307818993
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 7000
+Oznacenie generacie 6999
+Priemerny fitnes populacie v tejto generacii je  0.000857759928629909
+Najlepsi jedinec tejto generacie ma fitnes 0.0010841501862763041
+Najlepsi jedinec zo vsetkych populacii s dlzkou 922.3814307818993
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 8000
+Oznacenie generacie 7999
+Priemerny fitnes populacie v tejto generacii je  0.0007772231314281408
+Najlepsi jedinec tejto generacie ma fitnes 0.0010841501862763041
+Najlepsi jedinec zo vsetkych populacii s dlzkou 922.3814307818993
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 9000
+Oznacenie generacie 8999
+Priemerny fitnes populacie v tejto generacii je  0.000881562094826343
+Najlepsi jedinec tejto generacie ma fitnes 0.0010841501862763041
+Najlepsi jedinec zo vsetkych populacii s dlzkou 922.3814307818993
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 10000
+Oznacenie generacie 9999
+Priemerny fitnes populacie v tejto generacii je  0.0008888093773534748
+Najlepsi jedinec tejto generacie ma fitnes 0.0010841501862763041
+Najlepsi jedinec zo vsetkych populacii s dlzkou 922.3814307818993
+------------------------------------------------------------------------------------------------------------------------------------------------------
+S dlzkou cesty 922.3814307818993 je najlepsi najdeny jedinec z poslednej populacie:
+[129, 151] [140, 168] [193, 176] [197, 180] [178, 187] [130, 192] [96, 181] [73, 160] [35, 185] [21, 169]
+[22, 154] [5, 140] [59, 107] [168, 68] [200, 20] [99, 19] [79, 47] [62, 17] [59, 39] [35, 55]
+[27, 62] 
+Jeho fitnes je 0.0010841501862763041
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Bol vygenerovany subor s vystupmi "2020-11-22--16-55-15-S99VrG10000C40M0.1NtKt.xlsx"
+Bola zvolena moznost 5
+Tato moznost zopoveda suradniciam vygenerovanym randomom so seedom 99
+######################################################################################################################################################
+Start genetickeho algoritmu
+Povodne suradnice [[35, 185], [168, 68], [197, 180], [129, 151], [35, 55], [193, 176], [59, 107], [130, 192], [140, 168], [200, 20], [59, 39], [79, 47], [27, 62], [62, 17], [73, 160], [21, 169], [99, 19], [22, 154], [178, 187], [5, 140], [96, 181]]
+Vyber rodicov turnaj
+Pocet generacii 10000
+Pocet clenov populacie 40
+Pravdepodobnost mutacii deti 0.1
+Najhorsie z deti je nahradene najlepsim clenom z predoslej populacie
+2 nahodne deti v kazdej generacii su nahradene 2 novymi permutaciami
+Ciastkove vypisy pocas evolucie aktivne
+Poradove cislo generacie 1000
+Oznacenie generacie 999
+Priemerny fitnes populacie v tejto generacii je  0.0008386888618545432
+Najlepsi jedinec tejto generacie ma fitnes 0.0008541800180551737
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1170.7134080200497
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 2000
+Oznacenie generacie 1999
+Priemerny fitnes populacie v tejto generacii je  0.0008363213260434071
+Najlepsi jedinec tejto generacie ma fitnes 0.0008541800180551737
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1170.7134080200497
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 3000
+Oznacenie generacie 2999
+Priemerny fitnes populacie v tejto generacii je  0.0008396798575380108
+Najlepsi jedinec tejto generacie ma fitnes 0.0008541800180551737
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1170.7134080200497
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 4000
+Oznacenie generacie 3999
+Priemerny fitnes populacie v tejto generacii je  0.0008366613850351612
+Najlepsi jedinec tejto generacie ma fitnes 0.0008541800180551737
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1170.7134080200497
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 5000
+Oznacenie generacie 4999
+Priemerny fitnes populacie v tejto generacii je  0.0008432356824277475
+Najlepsi jedinec tejto generacie ma fitnes 0.0008541800180551737
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1170.7134080200497
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 6000
+Oznacenie generacie 5999
+Priemerny fitnes populacie v tejto generacii je  0.0008376276576131383
+Najlepsi jedinec tejto generacie ma fitnes 0.0008541800180551737
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1170.7134080200497
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 7000
+Oznacenie generacie 6999
+Priemerny fitnes populacie v tejto generacii je  0.0008323890499470409
+Najlepsi jedinec tejto generacie ma fitnes 0.0008541800180551737
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1170.7134080200497
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 8000
+Oznacenie generacie 7999
+Priemerny fitnes populacie v tejto generacii je  0.0008334114490595301
+Najlepsi jedinec tejto generacie ma fitnes 0.0008541800180551737
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1170.7134080200497
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 9000
+Oznacenie generacie 8999
+Priemerny fitnes populacie v tejto generacii je  0.0008364987474582282
+Najlepsi jedinec tejto generacie ma fitnes 0.0008541800180551737
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1170.7134080200497
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 10000
+Oznacenie generacie 9999
+Priemerny fitnes populacie v tejto generacii je  0.000841484432190763
+Najlepsi jedinec tejto generacie ma fitnes 0.0008541800180551737
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1170.7134080200497
+------------------------------------------------------------------------------------------------------------------------------------------------------
+S dlzkou cesty 1170.7134080200497 je najlepsi najdeny jedinec z poslednej populacie:
+[21, 169] [35, 185] [27, 62] [59, 107] [129, 151] [140, 168] [168, 68] [200, 20] [99, 19] [79, 47]
+[62, 17] [59, 39] [35, 55] [73, 160] [96, 181] [178, 187] [197, 180] [193, 176] [130, 192] [22, 154]
+[5, 140] 
+Jeho fitnes je 0.0008541800180551737
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Bol vygenerovany subor s vystupmi "2020-11-22--16-55-48-S99VtG10000C40M0.1NtKt.xlsx"
+Bola zvolena moznost 6
+Tato moznost zopoveda suradniciam vygenerovanym randomom so seedom 111
+######################################################################################################################################################
+Start genetickeho algoritmu
+Povodne suradnice [[108, 86], [19, 169], [66, 118], [40, 199], [185, 7], [12, 10], [193, 112], [28, 14], [162, 21], [54, 200], [37, 186], [12, 173], [197, 78], [31, 88], [198, 13], [50, 68], [157, 137], [170, 147], [97, 166], [59, 88], [4, 17], [74, 139], [177, 103], [88, 123], [123, 78], [134, 173], [187, 94], [200, 64], [1, 137], [140, 131], [173, 37], [197, 69], [33, 160], [135, 54], [171, 78], [105, 199], [50, 62], [75, 40], [170, 50], [91, 42]]
+Vyber rodicov ruleta
+Pocet generacii 10000
+Pocet clenov populacie 40
+Pravdepodobnost mutacii deti 0.1
+Najhorsie z deti je nahradene najlepsim clenom z predoslej populacie
+2 nahodne deti v kazdej generacii su nahradene 2 novymi permutaciami
+Ciastkove vypisy pocas evolucie aktivne
+Poradove cislo generacie 1000
+Oznacenie generacie 999
+Priemerny fitnes populacie v tejto generacii je  0.0004112713318085382
+Najlepsi jedinec tejto generacie ma fitnes 0.0005653736517890809
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1733.909810244352
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 2000
+Oznacenie generacie 1999
+Priemerny fitnes populacie v tejto generacii je  0.0004928661358451042
+Najlepsi jedinec tejto generacie ma fitnes 0.0005987038280035342
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1586.1296072853186
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 3000
+Oznacenie generacie 2999
+Priemerny fitnes populacie v tejto generacii je  0.0004657765552729371
+Najlepsi jedinec tejto generacie ma fitnes 0.0006156943736003323
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1429.3875884485901
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 4000
+Oznacenie generacie 3999
+Priemerny fitnes populacie v tejto generacii je  0.0006247608440871806
+Najlepsi jedinec tejto generacie ma fitnes 0.0006998215681258514
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1428.9356680989954
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 5000
+Oznacenie generacie 4999
+Priemerny fitnes populacie v tejto generacii je  0.000613513567982904
+Najlepsi jedinec tejto generacie ma fitnes 0.0006998215681258514
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1428.9356680989954
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 6000
+Oznacenie generacie 5999
+Priemerny fitnes populacie v tejto generacii je  0.0005163383034637212
+Najlepsi jedinec tejto generacie ma fitnes 0.0006998215681258514
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1428.9356680989954
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 7000
+Oznacenie generacie 6999
+Priemerny fitnes populacie v tejto generacii je  0.0004858564845582656
+Najlepsi jedinec tejto generacie ma fitnes 0.0006998215681258514
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1428.9356680989954
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 8000
+Oznacenie generacie 7999
+Priemerny fitnes populacie v tejto generacii je  0.000574291317050052
+Najlepsi jedinec tejto generacie ma fitnes 0.0006998215681258514
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1428.9356680989954
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 9000
+Oznacenie generacie 8999
+Priemerny fitnes populacie v tejto generacii je  0.00045698548789849757
+Najlepsi jedinec tejto generacie ma fitnes 0.0006998215681258514
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1428.9356680989954
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 10000
+Oznacenie generacie 9999
+Priemerny fitnes populacie v tejto generacii je  0.0004615130244938341
+Najlepsi jedinec tejto generacie ma fitnes 0.0005651762141784917
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1428.9356680989954
+------------------------------------------------------------------------------------------------------------------------------------------------------
+S dlzkou cesty 1428.9356680989954 je najlepsi najdeny jedinec z poslednej populacie:
+[135, 54] [162, 21] [185, 7] [198, 13] [173, 37] [170, 50] [171, 78] [88, 123] [74, 139] [1, 137]
+[12, 173] [40, 199] [54, 200] [97, 166] [157, 137] [170, 147] [193, 112] [197, 78] [200, 64] [197, 69]
+[187, 94] [177, 103] [140, 131] [134, 173] [105, 199] [37, 186] [19, 169] [33, 160] [66, 118] [108, 86]
+[123, 78] [91, 42] [75, 40] [28, 14] [12, 10] [4, 17] [50, 62] [50, 68] [31, 88] [59, 88]
+Jeho fitnes je 0.0006998215681258514
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Bol vygenerovany subor s vystupmi "2020-11-22--16-56-34-S111VrG10000C40M0.1NtKt.xlsx"
+Bola zvolena moznost 7
+Tato moznost zopoveda suradniciam vygenerovanym randomom so seedom 111
+######################################################################################################################################################
+Start genetickeho algoritmu
+Povodne suradnice [[108, 86], [19, 169], [66, 118], [40, 199], [185, 7], [12, 10], [193, 112], [28, 14], [162, 21], [54, 200], [37, 186], [12, 173], [197, 78], [31, 88], [198, 13], [50, 68], [157, 137], [170, 147], [97, 166], [59, 88], [4, 17], [74, 139], [177, 103], [88, 123], [123, 78], [134, 173], [187, 94], [200, 64], [1, 137], [140, 131], [173, 37], [197, 69], [33, 160], [135, 54], [171, 78], [105, 199], [50, 62], [75, 40], [170, 50], [91, 42]]
+Vyber rodicov turnaj
+Pocet generacii 10000
+Pocet clenov populacie 40
+Pravdepodobnost mutacii deti 0.1
+Najhorsie z deti je nahradene najlepsim clenom z predoslej populacie
+2 nahodne deti v kazdej generacii su nahradene 2 novymi permutaciami
+Ciastkove vypisy pocas evolucie aktivne
+Poradove cislo generacie 1000
+Oznacenie generacie 999
+Priemerny fitnes populacie v tejto generacii je  0.0005004845498954504
+Najlepsi jedinec tejto generacie ma fitnes 0.000508742431540075
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1965.6312074712944
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 2000
+Oznacenie generacie 1999
+Priemerny fitnes populacie v tejto generacii je  0.000500652276594775
+Najlepsi jedinec tejto generacie ma fitnes 0.000508742431540075
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1965.6312074712944
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 3000
+Oznacenie generacie 2999
+Priemerny fitnes populacie v tejto generacii je  0.0005015418123970357
+Najlepsi jedinec tejto generacie ma fitnes 0.000508742431540075
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1965.6312074712944
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 4000
+Oznacenie generacie 3999
+Priemerny fitnes populacie v tejto generacii je  0.0004988654161795479
+Najlepsi jedinec tejto generacie ma fitnes 0.000508742431540075
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1965.6312074712944
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 5000
+Oznacenie generacie 4999
+Priemerny fitnes populacie v tejto generacii je  0.0005012843204931306
+Najlepsi jedinec tejto generacie ma fitnes 0.000508742431540075
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1965.6312074712944
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 6000
+Oznacenie generacie 5999
+Priemerny fitnes populacie v tejto generacii je  0.0005060834885193892
+Najlepsi jedinec tejto generacie ma fitnes 0.0005141107004636184
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1945.1063731959146
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 7000
+Oznacenie generacie 6999
+Priemerny fitnes populacie v tejto generacii je  0.0005052390545052216
+Najlepsi jedinec tejto generacie ma fitnes 0.0005141122836100067
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1945.1003834768828
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 8000
+Oznacenie generacie 7999
+Priemerny fitnes populacie v tejto generacii je  0.0005055540317623069
+Najlepsi jedinec tejto generacie ma fitnes 0.0005141122836100067
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1945.1003834768828
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 9000
+Oznacenie generacie 8999
+Priemerny fitnes populacie v tejto generacii je  0.0005009401389844738
+Najlepsi jedinec tejto generacie ma fitnes 0.0005141122836100067
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1945.1003834768828
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Poradove cislo generacie 10000
+Oznacenie generacie 9999
+Priemerny fitnes populacie v tejto generacii je  0.0005060901335621967
+Najlepsi jedinec tejto generacie ma fitnes 0.0005141122836100067
+Najlepsi jedinec zo vsetkych populacii s dlzkou 1945.1003834768828
+------------------------------------------------------------------------------------------------------------------------------------------------------
+S dlzkou cesty 1945.1003834768828 je najlepsi najdeny jedinec z poslednej populacie:
+[50, 68] [170, 147] [177, 103] [197, 69] [200, 64] [197, 78] [193, 112] [187, 94] [198, 13] [185, 7]
+[173, 37] [123, 78] [1, 137] [33, 160] [19, 169] [12, 173] [97, 166] [134, 173] [54, 200] [40, 199]
+[74, 139] [66, 118] [59, 88] [31, 88] [37, 186] [105, 199] [157, 137] [140, 131] [135, 54] [162, 21]
+[170, 50] [171, 78] [108, 86] [50, 62] [4, 17] [12, 10] [28, 14] [75, 40] [91, 42] [88, 123]
+Jeho fitnes je 0.0005141122836100067
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Bol vygenerovany subor s vystupmi "2020-11-22--16-57-24-S111VtG10000C40M0.1NtKt.xlsx"
